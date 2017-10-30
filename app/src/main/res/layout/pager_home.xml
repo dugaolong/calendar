@@ -4,10 +4,10 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <com.dgl.www.calendar.customview.agenda.AgendaView
+    <com.jmm.www.calendar.customview.agenda.AgendaView
         android:id="@+id/agenda_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-    </com.dgl.www.calendar.customview.agenda.AgendaView>
+    </com.jmm.www.calendar.customview.agenda.AgendaView>
 
 </LinearLayout>

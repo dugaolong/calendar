@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.dgl.www.calendar.customview.agenda.AgendaEventView xmlns:android="http://schemas.android.com/apk/res/android"
+<com.jmm.www.calendar.customview.agenda.AgendaEventView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:gravity="center_vertical"
@@ -95,4 +95,4 @@
 
     </LinearLayout>
 
-</com.dgl.www.calendar.customview.agenda.AgendaEventView>
+</com.jmm.www.calendar.customview.agenda.AgendaEventView>

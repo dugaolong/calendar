@@ -11,7 +11,7 @@
         android:background="@drawable/shadow">
     </View>
 
-    <com.dgl.www.calendar.customview.agenda.AgendaListView
+    <com.jmm.www.calendar.customview.agenda.AgendaListView
         android:id="@+id/agenda_listview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

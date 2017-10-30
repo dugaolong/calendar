@@ -64,7 +64,7 @@
             </LinearLayout>
 
             <!-- CalendarView -->
-            <com.dgl.www.calendar.customview.calendar.CalendarView
+            <com.jmm.www.calendar.customview.calendar.CalendarView
                 android:id="@+id/calendar_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
