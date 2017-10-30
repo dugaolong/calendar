@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/about_bg"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <View
+        android:id="@+id/view_shadow"
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:background="@drawable/shadow"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="Design By Each"
+            android:gravity="center"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="50dp"
+            android:text="Contact Me:"
+            android:gravity="end"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:paddingLeft="10dp"
+            android:text="3394376465@qq.com"
+            android:textColor="@color/calendar_circle_current_color"
+            android:gravity="center_vertical"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/pay_qrcode"
+            android:layout_marginTop="50dp"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:src="@drawable/wechat_pay"
+            android:layout_gravity="center"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="为保证『知日历』的简洁，未加入任何广告，你可以通过微信付款来支持开发者继续优化应用，
+        金额大小根据你的心情。\n\n可以用微信直接扫描二维码，也可以长按二维码分享给自己，然后识别二维码支付。\n\n感谢你的支持！"
+            android:layout_margin="20dp"
+            android:textColor="#DE000000"
+            />
+    </LinearLayout>
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:orientation="horizontal">-->
+
+        <!--<TextView-->
+            <!--android:layout_width="120dp"-->
+            <!--android:layout_height="50dp"-->
+            <!--android:text="Github:"-->
+            <!--android:gravity="end"/>-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/github"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="50dp"-->
+            <!--android:paddingLeft="10dp"-->
+            <!--android:text="https://github.com/Werb/MyCalendarDemo"-->
+            <!--android:textColor="@color/calendar_circle_current_color"-->
+            <!--android:gravity="center_vertical"/>-->
+    <!--</LinearLayout>-->
+
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:orientation="horizontal">-->
+
+        <!--<TextView-->
+            <!--android:layout_width="120dp"-->
+            <!--android:layout_height="50dp"-->
+            <!--android:text="WeiBo:"-->
+            <!--android:gravity="end"/>-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/weibo"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="50dp"-->
+            <!--android:paddingLeft="10dp"-->
+            <!--android:text="http://weibo.com/singerwannber"-->
+            <!--android:textColor="@color/calendar_circle_current_color"-->
+            <!--android:gravity="center_vertical"/>-->
+    <!--</LinearLayout>-->
+</LinearLayout>
