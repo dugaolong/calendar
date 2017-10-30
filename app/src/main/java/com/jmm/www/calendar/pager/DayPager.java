@@ -6,7 +6,6 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.jmm.www.calendar.R;
 import com.jmm.www.calendar.ScheduleDetailActivity;
@@ -135,7 +134,7 @@ public class DayPager extends BasePager {
             @Override
             public void onItemClick(View view, int position) {
                 TextView alarm_id = (TextView) view.findViewById(R.id.Alarm_id);
-                Toast.makeText(mActivity,position+"-"+alarm_id.getText().toString(), Toast.LENGTH_SHORT).show();
+//                Toast.makeText(mActivity,position+"-"+alarm_id.getText().toString(), Toast.LENGTH_SHORT).show();
                 if(!alarm_id.getText().toString().equals("0")){
                     Intent intent = new Intent(mActivity, ScheduleDetailActivity.class);
                     intent.putExtra("id",alarm_id.getText().toString());

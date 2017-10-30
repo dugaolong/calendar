@@ -11,7 +11,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.Toast;
 
 import com.jmm.www.calendar.R;
 
@@ -56,7 +55,7 @@ public class SetAlarmToneActivity extends AppCompatActivity {
         adapter.setOnItemClickListener(new SetAlarmToneAdapter.OnRecyclerViewItemClickListener() {
             @Override
             public void onItemClick(View view, String data, int position) {
-                Toast.makeText(SetAlarmToneActivity.this, data + "-" + position, Toast.LENGTH_SHORT).show();
+//                Toast.makeText(SetAlarmToneActivity.this, data + "-" + position, Toast.LENGTH_SHORT).show();
                 toneName = data;
                 RingtoneManager rm = new RingtoneManager(SetAlarmToneActivity.this);
                 rm.setType(RingtoneManager.TYPE_RINGTONE);

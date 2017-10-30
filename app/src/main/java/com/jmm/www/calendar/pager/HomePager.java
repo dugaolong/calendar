@@ -8,7 +8,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.jmm.www.calendar.AlarmBean;
 import com.jmm.www.calendar.MainActivity;
@@ -86,7 +85,7 @@ public class HomePager extends BasePager implements StickyListHeadersListView.On
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 TextView alarm_id = (TextView) view.findViewById(R.id.Alarm_id);
-                Toast.makeText(mActivity,position+"-"+alarm_id.getText().toString(), Toast.LENGTH_SHORT).show();
+//                Toast.makeText(mActivity,position+"-"+alarm_id.getText().toString(), Toast.LENGTH_SHORT).show();
                 if(!alarm_id.getText().toString().equals("0")){
                     Intent intent = new Intent(mActivity, ScheduleDetailActivity.class);
                     intent.putExtra("id",alarm_id.getText().toString());
