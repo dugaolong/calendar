@@ -21,7 +21,7 @@
         <item
             android:id="@+id/aboutMe"
             android:checkable="true"
-            android:icon="@drawable/ic_android_grey_900_24dp"
+            android:icon="@drawable/about"
             android:title="关于" />
     </group>
 </menu>
