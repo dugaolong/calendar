@@ -330,8 +330,10 @@ public class CalendarManager {
      * @param weekItem
      */
     private void addWeekToLastMonth(WeekItem weekItem) {
-        getLastMonth().getWeeks().add(weekItem);
-        getLastMonth().setMonth(mWeekCounter.get(Calendar.MONTH) + 1);
+        if(getLastMonth()!=null){
+            getLastMonth().getWeeks().add(weekItem);
+            getLastMonth().setMonth(mWeekCounter.get(Calendar.MONTH) + 1);
+        }
     }
 
     /**
@@ -340,7 +342,12 @@ public class CalendarManager {
      */
     private MonthItem getLastMonth() {
         System.out.println("Months().size()=" + getMonths().size());
-        return getMonths().get(getMonths().size()-1);
+        if(getMonths().size()>0){
+            return getMonths().get(getMonths().size()-1);
+        }else {
+            return null;
+        }
+//        return getMonths().get(getMonths().size()-1);
     }
 
     public List<Calendar> getFirstDayOfMonth(){

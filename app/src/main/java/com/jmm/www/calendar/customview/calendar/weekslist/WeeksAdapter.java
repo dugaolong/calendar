@@ -235,9 +235,9 @@ public class WeeksAdapter extends RecyclerView.Adapter<WeeksAdapter.WeekViewHold
 
                 // Check if the month label has to be displayed
                 // 判断月份标签是否被显示了
+                SimpleDateFormat monthDateFormat = new SimpleDateFormat(mContext.getResources().getString(R.string.month_name_format), CalendarManager.getInstance().getLocale());
                 if (dayItem.getValue() == 15) {//为什么是15？因为在一个月的最中间的一星期显示
                     mTxtMonth.setVisibility(View.VISIBLE);
-                    SimpleDateFormat monthDateFormat = new SimpleDateFormat(mContext.getResources().getString(R.string.month_name_format), CalendarManager.getInstance().getLocale());
                     String month = monthDateFormat.format(weekItem.getDate()).toUpperCase();
                     //当前日期的年数不等于这个星期的年数，则需要在mTxtMonth上加上年份
                     if (today.get(Calendar.YEAR) != weekItem.getYear()) {
@@ -245,6 +245,9 @@ public class WeeksAdapter extends RecyclerView.Adapter<WeeksAdapter.WeekViewHold
                     }
                     mTxtMonth.setText(month);
                     BusProvider.getInstance().send(new Events.CalendarMonthEvent(month));
+                }
+                if(DateHelper.sameDate(today, dayItem.getDate())){
+                    BusProvider.getInstance().send(new Events.CalendarMonthEvent(monthDateFormat.format(dayItem.getDate()).toUpperCase()));
                 }
             }
         }
