@@ -9,6 +9,10 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.view.KeyEvent;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,6 +24,8 @@ import com.android.volley.toolbox.Volley;
 import com.jmm.www.calendar.utils.ApiService;
 import com.jmm.www.calendar.utils.GlobalContants;
 import com.jmm.www.calendar.utils.StreamFormat;
+import com.xiaomi.ad.SplashAdListener;
+import com.xiaomi.ad.adView.SplashAd;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -53,6 +59,11 @@ public class SplashActivity extends AppCompatActivity {
     private String mDesc;//版本描述
     private String mdownloadUrl;//新版本下载网站
 
+    private static final String TAG = "VerticalSplash";
+    //以下的POSITION_ID 需要使用您申请的值替换下面内容
+    private static final String POSITION_ID = "2e1cb179b87a7b0475215cdd30543d5a";
+    private ViewGroup mContainer;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,16 +76,61 @@ public class SplashActivity extends AppCompatActivity {
 
         tvVersionCode.setText("版本号:" + mVersionName);
 
-//        checkVersion();
-        //1.5S的延迟
-        Timer timer =new Timer();
-        TimerTask task =new TimerTask() {
+        mContainer = (ViewGroup) findViewById(R.id.splash_ad_container);
+        SplashAd splashAd = new SplashAd(this, mContainer, R.mipmap.design, new SplashAdListener() {
             @Override
-            public void run() {
+            public void onAdPresent() {
+                // 开屏广告展示
+                Log.d(TAG, "onAdPresent");
+            }
+
+            @Override
+            public void onAdClick() {
+                //用户点击了开屏广告
+                Log.d(TAG, "onAdClick");
+                finish();
                 jumpToNextPage();
             }
-        };
-        timer.schedule(task,1500);
+
+            @Override
+            public void onAdDismissed() {
+                //这个方法被调用时，表示从开屏广告消失。
+                Log.d(TAG, "onAdDismissed");
+                finish();
+                jumpToNextPage();
+            }
+
+            @Override
+            public void onAdFailed(String s) {
+                Log.d(TAG, "onAdFailed, message: " + s);
+                finish();
+                jumpToNextPage();
+            }
+        });
+        splashAd.requestAd(POSITION_ID);
+
+
+//        checkVersion();
+        //1.5S的延迟
+//        Timer timer =new Timer();
+//        TimerTask task =new TimerTask() {
+//            @Override
+//            public void run() {
+//                jumpToNextPage();
+//            }
+//        };
+//        timer.schedule(task,1500);
+    }
+
+    @Override
+    public boolean dispatchKeyEvent(KeyEvent event) {
+        if (event.getKeyCode() == KeyEvent.KEYCODE_BACK) {
+            // 捕获back键，在展示广告期间按back键，不跳过广告
+            if (mContainer.getVisibility() == View.VISIBLE) {
+                return true;
+            }
+        }
+        return super.dispatchKeyEvent(event);
     }
 
     /**
