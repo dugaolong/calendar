@@ -88,7 +88,7 @@ public class SplashActivity extends AppCompatActivity {
             public void onAdClick() {
                 //用户点击了开屏广告
                 Log.d(TAG, "onAdClick");
-                finish();
+//                finish();
                 jumpToNextPage();
             }
 
@@ -96,14 +96,14 @@ public class SplashActivity extends AppCompatActivity {
             public void onAdDismissed() {
                 //这个方法被调用时，表示从开屏广告消失。
                 Log.d(TAG, "onAdDismissed");
-                finish();
+//                finish();
                 jumpToNextPage();
             }
 
             @Override
             public void onAdFailed(String s) {
                 Log.d(TAG, "onAdFailed, message: " + s);
-                finish();
+//                finish();
                 jumpToNextPage();
             }
         });

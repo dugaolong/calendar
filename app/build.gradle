@@ -33,6 +33,13 @@ android {
     }
     productFlavors {
     }
+    sourceSets {
+        main {
+            assets.srcDirs = ['assets']
+        }
+        debug.setRoot('build-types/debug')
+        release.setRoot('build-types/release')
+    }
 }
 
 dependencies {
