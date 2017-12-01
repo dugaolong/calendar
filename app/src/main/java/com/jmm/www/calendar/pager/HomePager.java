@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v4.content.ContextCompat;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.TextView;
@@ -120,7 +119,7 @@ public class HomePager extends BasePager implements StickyListHeadersListView.On
      */
     @Override
     public void onStickyHeaderChanged(StickyListHeadersListView l, View header, int itemPosition, long headerId) {
-        Log.d(LOG_TAG, String.format("onStickyHeaderChanged, position = %d, headerId = %d", itemPosition, headerId));
+//        Log.d(LOG_TAG, String.format("onStickyHeaderChanged, position = %d, headerId = %d", itemPosition, headerId));
 
         if (CalendarManager.getInstance().getEvents().size() > 0) {
             CalendarEvent event = CalendarManager.getInstance().getEvents().get(itemPosition);
@@ -174,7 +173,7 @@ public class HomePager extends BasePager implements StickyListHeadersListView.On
 
             BaseCalendarEvent event1 = new BaseCalendarEvent(bean.getId(),bean.getTitle(), bean.getDescription(), bean.getLocal(),
                     ContextCompat.getColor(mActivity, colorId), startTime1, endTime1, isAllday, startAndEndTime);
-            System.out.println("---" + event1.toString());
+//            System.out.println("---" + event1.toString());
             eventList.add(event1);
         }
 

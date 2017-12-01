@@ -212,7 +212,7 @@ public class CalendarManager {
             if (tmpMonth != mWeekCounter.get(Calendar.MONTH)) {
                 //Calendar.MONTH
                 MonthItem monthItem = new MonthItem(mWeekCounter.get(Calendar.YEAR), mWeekCounter.get(Calendar.MONTH));
-                System.out.println("monthItem_month="+monthItem.getMonth());
+//                System.out.println("monthItem_month="+monthItem.getMonth());
                 //把 monthItem 放入 List<monthItem> 集合中
                 getMonths().add(monthItem);
             }
@@ -220,7 +220,7 @@ public class CalendarManager {
             // Build our week list
             // 构建 week 列表
             WeekItem weekItem = new WeekItem(mWeekCounter.get(Calendar.WEEK_OF_YEAR), mWeekCounter.get(Calendar.YEAR), date, mMonthHalfNameFormat.format(date), mWeekCounter.get(Calendar.MONTH));
-            System.out.println("weekItem_month="+weekItem.getMonth());//9月
+//            System.out.println("weekItem_month="+weekItem.getMonth());//9月
             List<DayItem> dayItems = getDayCells(mWeekCounter); // gather(收集) days for the built week
             weekItem.setDayItems(dayItems);
             //把 weekItem 放入 List<weekItem> 集合中
@@ -228,7 +228,7 @@ public class CalendarManager {
             //把 weekItem 加入 MonthItem
             addWeekToLastMonth(weekItem);
 
-            Log.d(LOG_TAG, String.format("Adding week: %s", weekItem));
+//            Log.d(LOG_TAG, String.format("Adding week: %s", weekItem));
             tmpMonth = mWeekCounter.get(Calendar.MONTH);
             //加1周，循环
             mWeekCounter.add(Calendar.WEEK_OF_YEAR, 1);
@@ -242,7 +242,7 @@ public class CalendarManager {
     public void loadEvents(List<CalendarEvent> eventList) {
         /*CalendarLoadTask calendarLoadTask = new CalendarLoadTask();
         calendarLoadTask.execute();*/
-        System.out.println("---onloadEvents----"+eventList.size());
+//        System.out.println("---onloadEvents----"+eventList.size());
         for (WeekItem weekItem : getWeeks()) {
             for (DayItem dayItem : weekItem.getDayItems()) {
                 boolean isEventForDay = false;
@@ -250,7 +250,7 @@ public class CalendarManager {
                     //event 是按日期排的，先判断这个event在不在这个日期下
                     //属于这个日期的，把该event添加到list集合中
                     if (DateHelper.isBetweenInclusive(dayItem.getDate(), event.getStartTime(), event.getEndTime())) {
-                        System.out.println("---on 有匹配的event");
+//                        System.out.println("---on 有匹配的event");
                         CalendarEvent copy = event.copy();
                         Calendar dayInstance = Calendar.getInstance();
                         dayInstance.setTime(dayItem.getDate());
@@ -279,7 +279,7 @@ public class CalendarManager {
 
         //发送消息，EventsFetched 暂时理解为 事件与日期匹配
         BusProvider.getInstance().send(new Events.EventsFetched());
-        Log.d(LOG_TAG, "CalendarEventTask finished");
+//        Log.d(LOG_TAG, "CalendarEventTask finished");
 
     }
 
@@ -300,7 +300,7 @@ public class CalendarManager {
         int firstDayOfWeek = cal.get(Calendar.DAY_OF_WEEK);//传入的这天在这一周中week的位置
         int offset = cal.getFirstDayOfWeek() - firstDayOfWeek;//这一周的第一天-传入的这天在这一周中week的位置
 
-        System.out.println("cal.getFirstDayOfWeek()="+cal.getFirstDayOfWeek()+",firstDayOfWeek="+firstDayOfWeek);
+//        System.out.println("cal.getFirstDayOfWeek()="+cal.getFirstDayOfWeek()+",firstDayOfWeek="+firstDayOfWeek);
 
         if (offset > 0) {
             offset -= 7;
@@ -309,7 +309,7 @@ public class CalendarManager {
         //补全偏移量
         cal.add(Calendar.DATE, offset);
 
-        Log.d(LOG_TAG, String.format("Buiding row week starting at %s", cal.getTime()));
+//        Log.d(LOG_TAG, String.format("Buiding row week starting at %s", cal.getTime()));
 
         //向DayItem中添加数据
         for (int c = 0; c < 7; c++) {
@@ -341,7 +341,7 @@ public class CalendarManager {
      * @return
      */
     private MonthItem getLastMonth() {
-        System.out.println("Months().size()=" + getMonths().size());
+//        System.out.println("Months().size()=" + getMonths().size());
         if(getMonths().size()>0){
             return getMonths().get(getMonths().size()-1);
         }else {

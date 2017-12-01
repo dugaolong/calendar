@@ -30,7 +30,7 @@ public class RecycleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
         this.list = list;
         context = ctx;
 
-        System.out.println("~~~" + this.list.toString());
+//        System.out.println("~~~" + this.list.toString());
 
     }
 
@@ -38,11 +38,11 @@ public class RecycleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         if(tag.equals("dayPager")) {
             View view = View.inflate(parent.getContext(), R.layout.daypager_list, null);
-            System.out.println("--adapter" + list.size());
+//            System.out.println("--adapter" + list.size());
             return new DayPagerViewHolder(view);
         }else if(tag.equals("weekPager")){
             View view = View.inflate(parent.getContext(), R.layout.weekpager_list, null);
-            System.out.println("--adapter" + list.size());
+//            System.out.println("--adapter" + list.size());
             return new WeekPagerViewHolder(view);
         }
         return null;

@@ -264,7 +264,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onRestart() {
         super.onRestart();
-        System.out.println("---onRestart");
+//        System.out.println("---onRestart");
 
     }
 

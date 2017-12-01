@@ -30,7 +30,7 @@ public abstract class EventRenderer<T extends CalendarEvent> {
         //ParameterizedType 表示参数化类型
         //getGenericSuperclass()获得带有泛型的父类
         ParameterizedType type = (ParameterizedType) getClass().getGenericSuperclass();
-        System.out.println("getClass de type ： "+ type.getActualTypeArguments()[0].toString());
+//        System.out.println("getClass de type ： "+ type.getActualTypeArguments()[0].toString());
         //返回表示此类型实际类型参数的 Type 对象的数组
         return (Class<T>) type.getActualTypeArguments()[0];
     }

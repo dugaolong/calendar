@@ -45,19 +45,19 @@ public class AgendaHeaderView extends LinearLayout {
     public AgendaHeaderView(Context context) {
         super(context);
         this.context = context;
-        System.out.println("AgendaHeaderView--1");
+//        System.out.println("AgendaHeaderView--1");
     }
 
     public AgendaHeaderView(Context context, AttributeSet attrs) {
         super(context, attrs);
         this.context = context;
-        System.out.println("AgendaHeaderView--2");
+//        System.out.println("AgendaHeaderView--2");
     }
 
     public AgendaHeaderView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         this.context = context;
-        System.out.println("AgendaHeaderView--3");
+//        System.out.println("AgendaHeaderView--3");
     }
 
     // endregion
@@ -86,10 +86,10 @@ public class AgendaHeaderView extends LinearLayout {
         //得到每个月的第一天
         List<Calendar> list = CalendarManager.getInstance().getFirstDayOfMonth();
         if (day.get(Calendar.DAY_OF_MONTH) == 1) {
-            System.out.println("---@@--" + day.get(Calendar.DAY_OF_MONTH) + "--" + day.get(Calendar.MONTH));
+//            System.out.println("---@@--" + day.get(Calendar.DAY_OF_MONTH) + "--" + day.get(Calendar.MONTH));
             for(int i =0;i<list.size();i++){
                 if(day.get(Calendar.MONTH)==i){
-                    System.out.println("----iiii---" + dip2px(120));
+//                    System.out.println("----iiii---" + dip2px(120));
                     setLayoutParams(new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, dip2px(120)));
 
                     setBackground(getResources().getDrawable(imagId[i]));

@@ -252,7 +252,7 @@ public class AddScheduleActivity extends AppCompatActivity {
         }
 
         if (id == 0) {
-            System.out.println("保存的数据:" + alarmBean.toString());
+//            System.out.println("保存的数据:" + alarmBean.toString());
             support.insertAlarmDate(alarmBean);
 
             SendAlarmBroadcast.startAlarmService(this);
@@ -261,7 +261,7 @@ public class AddScheduleActivity extends AppCompatActivity {
             startActivity(new Intent(this, MainActivity.class));
             finish();
         } else {
-            System.out.println("更新的数据:" + alarmBean.toString());
+//            System.out.println("更新的数据:" + alarmBean.toString());
             support.updateDataById(id, alarmBean);
 
             SendAlarmBroadcast.startAlarmService(this);

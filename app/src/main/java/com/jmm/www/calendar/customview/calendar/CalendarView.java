@@ -3,7 +3,6 @@ package com.jmm.www.calendar.customview.calendar;
 import android.content.Context;
 import android.support.v7.widget.LinearLayoutManager;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.ViewTreeObserver;
 import android.widget.LinearLayout;
@@ -234,8 +233,8 @@ public class CalendarView extends LinearLayout {
      */
     private void setUpAdapter(Calendar today, List<WeekItem> weeks, int dayTextColor, int currentDayTextColor, int pastDayTextColor) {
         if (mWeeksAdapter == null) {
-            Log.d(LOG_TAG, "Setting adapter with today's calendar: " + today.toString());
-            System.out.println("Setting adapter with today's calendar: "+today.toString());
+//            Log.d(LOG_TAG, "Setting adapter with today's calendar: " + today.toString());
+//            System.out.println("Setting adapter with today's calendar: "+today.toString());
             //
             mWeeksAdapter = new WeeksAdapter(getContext(), today, dayTextColor, currentDayTextColor, pastDayTextColor);
             mListViewWeeks.setAdapter(mWeeksAdapter);
@@ -273,7 +272,7 @@ public class CalendarView extends LinearLayout {
         for (int i = 0; i < mDayNamesHeader.getChildCount(); i++) {
             TextView txtDay = (TextView) mDayNamesHeader.getChildAt(i);
             txtDay.setText(dayLabels[i]);
-            System.out.println("按顺序显示:"+dayLabels[i]);
+//            System.out.println("按顺序显示:"+dayLabels[i]);
         }
     }
 
@@ -327,7 +326,7 @@ public class CalendarView extends LinearLayout {
             }
         }
 
-        System.out.println("currentWeekIndex="+currentWeekIndex+";mCurrentListPosition="+mCurrentListPosition);
+//        System.out.println("currentWeekIndex="+currentWeekIndex+";mCurrentListPosition="+mCurrentListPosition);
 
         if (currentWeekIndex != null) {
             // highlighted day has changed, update the rows concerned
