@@ -10,11 +10,11 @@ android {
             storePassword '123456'
         }
     }
-    compileSdkVersion 23
+    compileSdkVersion 24
     buildToolsVersion "23.0.2"
     defaultConfig {
         applicationId "com.jmm.www.calendar"
-        minSdkVersion 19
+        minSdkVersion 15
         targetSdkVersion 22
         versionCode 2
         versionName "1.1"
@@ -27,10 +27,6 @@ android {
             signingConfig signingConfigs.config
         }
     }
-    compileOptions {
-        sourceCompatibility 1.8
-        targetCompatibility 1.8
-    }
     productFlavors {
     }
     sourceSets {
@@ -39,6 +35,18 @@ android {
         }
         debug.setRoot('build-types/debug')
         release.setRoot('build-types/release')
+    }
+//    defaultConfig {
+//        // 指定支持的so架构
+//        ndk {
+//            abiFilters 'armeabi', 'armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64', 'mips', 'mips64'
+//        }
+//    }
+}
+
+repositories {
+    flatDir {
+        dirs 'libs'
     }
 }
 
@@ -67,4 +75,8 @@ dependencies {
     compile 'com.squareup.retrofit2:adapter-rxjava:2.0.0-beta4'
     //加载图片
     compile 'com.squareup.picasso:picasso:2.5.2'
+    // name 为上一步导入SDK中导入到工程的aar文件名去除文件后缀的字符串
+    // 比如上一步导入SDK中导入到工程的aar文件名为 YoumiSdk_v7.2.1_2017-05-04.aar，
+    // 那么这里应该这样配置 compile name: 'YoumiSdk_v7.2.1_2017-05-04', ext: 'aar'
+    compile name: 'YoumiSdk_v7.2.0_2017-05-08', ext: 'aar'
 }
