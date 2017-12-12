@@ -8,13 +8,13 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Process;
 import android.provider.Settings;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.RotateAnimation;
@@ -271,8 +271,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        Process.killProcess(android.os.Process.myPid());
-        System.exit(0);
     }
 
     @TargetApi(Build.VERSION_CODES.M)
@@ -317,6 +315,17 @@ public class MainActivity extends AppCompatActivity {
      */
     public DrawerLayout getDrawerLayout() {
         return mDrawerLayout;
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if ((keyCode == KeyEvent.KEYCODE_BACK)) {
+            android.os.Process.killProcess(android.os.Process.myPid());
+            System.exit(0);
+            return true;
+        } else {
+            return super.onKeyDown(keyCode, event);
+        }
     }
 
 }
