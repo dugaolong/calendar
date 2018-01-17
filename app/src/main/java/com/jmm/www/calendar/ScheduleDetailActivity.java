@@ -23,8 +23,10 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
+import static com.xiaomi.ad.internal.common.h.R;
+
 /**
- * Created by acer-pc on 2016/4/19.
+ * Created by jmm on 2016/4/19.
  */
 public class ScheduleDetailActivity extends AppCompatActivity {
 

@@ -23,9 +23,11 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
+import static com.xiaomi.ad.internal.common.h.R;
+
 /**
  * 导航页
- * Created by acer-pc on 2016/3/9.
+ * Created by jmm on 2016/3/9.
  */
 public class GuideActivity extends AppCompatActivity {
 

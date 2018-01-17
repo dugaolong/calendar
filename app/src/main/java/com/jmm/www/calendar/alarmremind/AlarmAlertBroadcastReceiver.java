@@ -17,7 +17,7 @@ import com.jmm.www.calendar.AlarmBean;
 import java.io.IOException;
 
 /**
- * Created by acer-pc on 2016/4/21.
+ * Created by jmm on 2016/4/21.
  */
 public class AlarmAlertBroadcastReceiver extends BroadcastReceiver {
 

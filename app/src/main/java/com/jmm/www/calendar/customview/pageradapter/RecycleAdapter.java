@@ -15,8 +15,10 @@ import com.jmm.www.calendar.utils.DateHelper;
 
 import java.util.List;
 
+import static com.xiaomi.ad.internal.common.h.R;
+
 /**
- * Created by acer-pc on 2016/5/12.
+ * Created by jmm on 2016/5/12.
  */
 public class RecycleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 

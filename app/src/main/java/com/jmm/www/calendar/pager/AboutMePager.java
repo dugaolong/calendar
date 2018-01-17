@@ -11,8 +11,10 @@ import com.jmm.www.calendar.utils.Events;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
+import static com.xiaomi.ad.internal.common.h.R;
+
 /**
- * Created by acer-pc on 2016/5/14.
+ * Created by jmm on 2016/5/14.
  */
 public class AboutMePager extends BasePager implements View.OnClickListener {
 

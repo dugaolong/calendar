@@ -6,7 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
 
 /**
- * Created by acer-pc on 2016/4/21.
+ * Created by jmm on 2016/4/21.
  */
 public class AlarmRemindActivity extends AppCompatActivity {
 

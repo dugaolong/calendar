@@ -12,8 +12,10 @@ import com.jmm.www.calendar.R;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
+import static com.xiaomi.ad.internal.common.h.R;
+
 /**
- * Created by acer-pc on 2016/4/17.
+ * Created by jmm on 2016/4/17.
  */
 public class SetAlarmTimeActivity extends AppCompatActivity implements View.OnClickListener {
 

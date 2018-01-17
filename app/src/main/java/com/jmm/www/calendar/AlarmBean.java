@@ -11,7 +11,7 @@ import java.io.Serializable;
 import java.util.Calendar;
 
 /**
- * Created by acer-pc on 2016/4/17.
+ * Created by jmm on 2016/4/17.
  */
 public class AlarmBean implements Serializable {
 

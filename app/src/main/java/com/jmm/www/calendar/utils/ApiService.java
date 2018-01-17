@@ -6,7 +6,7 @@ import retrofit2.http.GET;
 import retrofit2.http.Path;
 
 /**
- * Created by acer-pc on 2016/3/10.
+ * Created by jmm on 2016/3/10.
  */
 public interface ApiService {
 

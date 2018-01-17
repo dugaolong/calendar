@@ -27,8 +27,10 @@ import java.util.List;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
+import static com.xiaomi.ad.internal.common.h.R;
+
 /**
- * Created by acer-pc on 2016/3/11.
+ * Created by jmm on 2016/3/11.
  */
 public class ContentFragment extends BaseFragment {
 
