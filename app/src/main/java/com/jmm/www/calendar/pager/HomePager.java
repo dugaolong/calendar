@@ -174,7 +174,7 @@ public class HomePager extends BasePager implements StickyListHeadersListView.On
 
             BaseCalendarEvent event1 = new BaseCalendarEvent(bean.getId(),bean.getTitle(), bean.getDescription(), bean.getLocal(),
                     ContextCompat.getColor(mActivity, colorId), startTime1, endTime1, isAllday, startAndEndTime);
-            System.out.println("---" + event1.toString());
+            //System.out.println("---" + event1.toString());
             eventList.add(event1);
         }
 

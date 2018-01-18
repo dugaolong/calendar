@@ -57,10 +57,18 @@
 
                 </LinearLayout>
 
-                <ImageButton
-                    android:id="@+id/go_today"
-                    style="@style/imageButtonStyle"
-                    android:src="@drawable/ic_today_white_24dp" />
+                <TextView
+                    android:textColor="@color/color_white"
+                    android:layout_marginRight="10dp"
+                    android:text="天气"
+                    android:id="@+id/show_weather"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"/>
+                <!--<ImageButton-->
+                    <!--android:id="@+id/go_today"-->
+                    <!--style="@style/imageButtonStyle"-->
+                    <!--android:src="@drawable/ic_today_white_24dp" />-->
             </LinearLayout>
 
             <!-- CalendarView -->

@@ -27,7 +27,6 @@ import java.util.List;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-import static com.xiaomi.ad.internal.common.h.R;
 
 /**
  * Created by jmm on 2016/3/11.

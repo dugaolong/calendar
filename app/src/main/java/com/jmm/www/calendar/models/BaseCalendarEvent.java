@@ -215,7 +215,7 @@ public class BaseCalendarEvent implements CalendarEvent {
         this.mInstanceDay.set(Calendar.MILLISECOND, 0);
         this.mInstanceDay.set(Calendar.AM_PM, 0);
 
-//        System.out.println("setInstanceDay:"+mInstanceDay.toString());
+//        //System.out.println("setInstanceDay:"+mInstanceDay.toString());
     }
 
     public Calendar getEndTime() {

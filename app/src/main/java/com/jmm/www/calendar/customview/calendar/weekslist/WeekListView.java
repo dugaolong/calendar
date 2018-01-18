@@ -123,15 +123,15 @@ public class WeekListView extends RecyclerView {
 
         for (int i = 0; i < getChildCount(); i++) {
             //数值为6，显示的为5个item，但一滑动就会有6个
-            //System.out.println("ChildCount="+getChildCount());
+            ////System.out.println("ChildCount="+getChildCount());
             View child = getChildAt(i);
 
             //getX和getY获取到的值为相对于父视图而言的两个左边缘和上边缘的距离
             //得到每个Item中心点的绝对距离,即每个item中心点到父容器的距离
             int childCenterY = ((int) child.getY() + (itemHeight / 2));
-            //System.out.println("child.getY()="+(int) child.getY());
+            ////System.out.println("child.getY()="+(int) child.getY());
             int yDistance = childCenterY - y;
-            //System.out.println("yDistance="+yDistance);
+            ////System.out.println("yDistance="+yDistance);
 
             // If child center is closer than previous closest, set it as closest
             // Math.abs()返回绝对值，得到一个在滑动时距中心点最近的Item
@@ -190,11 +190,11 @@ public class WeekListView extends RecyclerView {
         //得到每个Item中心点的绝对距离,即每个item中心点到父容器的距离
         int childCenterY = ((int) child.getY() + (itemHeight / 2));
 
-        //System.out.println("itemHeight="+itemHeight);
-        //System.out.println("centerY="+centerY);
-        //System.out.println("childCenterY="+childCenterY);
+        ////System.out.println("itemHeight="+itemHeight);
+        ////System.out.println("centerY="+centerY);
+        ////System.out.println("childCenterY="+childCenterY);
         int childCenterY_centerY=childCenterY - centerY;
-        //System.out.println("childCenterY - centerY="+childCenterY_centerY);
+        ////System.out.println("childCenterY - centerY="+childCenterY_centerY);
 
         return childCenterY - centerY;
     }

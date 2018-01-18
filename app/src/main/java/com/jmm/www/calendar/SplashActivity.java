@@ -9,7 +9,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,8 +23,6 @@ import com.android.volley.toolbox.Volley;
 import com.jmm.www.calendar.utils.ApiService;
 import com.jmm.www.calendar.utils.GlobalContants;
 import com.jmm.www.calendar.utils.StreamFormat;
-import com.xiaomi.ad.SplashAdListener;
-import com.xiaomi.ad.adView.SplashAd;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -59,9 +56,6 @@ public class SplashActivity extends AppCompatActivity {
     private String mDesc;//版本描述
     private String mdownloadUrl;//新版本下载网站
 
-    private static final String TAG = "VerticalSplash";
-    //以下的POSITION_ID 需要使用您申请的值替换下面内容
-    private static final String POSITION_ID = "2e1cb179b87a7b0475215cdd30543d5a";
     private ViewGroup mContainer;
 
     @Override
@@ -77,49 +71,20 @@ public class SplashActivity extends AppCompatActivity {
         tvVersionCode.setText("版本号:" + mVersionName);
 
         mContainer = (ViewGroup) findViewById(R.id.splash_ad_container);
-        SplashAd splashAd = new SplashAd(this, mContainer, R.mipmap.design, new SplashAdListener() {
-            @Override
-            public void onAdPresent() {
-                // 开屏广告展示
-                Log.d(TAG, "onAdPresent");
-            }
 
-            @Override
-            public void onAdClick() {
-                //用户点击了开屏广告
-                Log.d(TAG, "onAdClick");
-//                finish();
-                jumpToNextPage();
-            }
+        task();
+    }
 
-            @Override
-            public void onAdDismissed() {
-                //这个方法被调用时，表示从开屏广告消失。
-                Log.d(TAG, "onAdDismissed");
-//                finish();
-                jumpToNextPage();
-            }
-
-            @Override
-            public void onAdFailed(String s) {
-                Log.d(TAG, "onAdFailed, message: " + s);
-//                finish();
-                jumpToNextPage();
-            }
-        });
-        splashAd.requestAd(POSITION_ID);
-
-
-//        checkVersion();
+    private void task() {
         //1.5S的延迟
-//        Timer timer =new Timer();
-//        TimerTask task =new TimerTask() {
-//            @Override
-//            public void run() {
-//                jumpToNextPage();
-//            }
-//        };
-//        timer.schedule(task,1500);
+        Timer timer =new Timer();
+        TimerTask task =new TimerTask() {
+            @Override
+            public void run() {
+                jumpToNextPage();
+            }
+        };
+        timer.schedule(task,2000);
     }
 
     @Override
@@ -149,8 +114,8 @@ public class SplashActivity extends AppCompatActivity {
                     mDesc = response.getString("description");
                     mdownloadUrl = response.getString("downloadUrl");
 
-                    System.out.println("versionName="+mVersionName+"versionCode"+mVersionCode);
-                    System.out.println("mdownloadUrl------------"+mdownloadUrl);
+                    //System.out.println("versionName="+mVersionName+"versionCode"+mVersionCode);
+                    //System.out.println("mdownloadUrl------------"+mdownloadUrl);
 
                     if(mVersionCode>getVersionCode()){
 
@@ -234,7 +199,7 @@ public class SplashActivity extends AppCompatActivity {
         builder.setPositiveButton("立即更新", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                System.out.println("立即更新");
+                //System.out.println("立即更新");
                 //下载APK
                 downLoadAPK();
 
@@ -296,7 +261,7 @@ public class SplashActivity extends AppCompatActivity {
                                 }
                             }
 
-                            System.out.println("下载成功!");
+                            //System.out.println("下载成功!");
                             //跳转至系统安装界面
                             Intent intent = new Intent(Intent.ACTION_VIEW);
                             intent.addCategory(Intent.CATEGORY_DEFAULT);

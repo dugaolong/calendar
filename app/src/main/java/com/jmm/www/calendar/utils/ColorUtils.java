@@ -2,7 +2,6 @@ package com.jmm.www.calendar.utils;
 
 import com.jmm.www.calendar.R;
 
-import static com.xiaomi.ad.internal.common.h.R;
 
 /**
  * Created by jmm on 2016/4/28.

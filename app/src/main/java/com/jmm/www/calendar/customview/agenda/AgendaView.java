@@ -73,7 +73,7 @@ public class AgendaView extends FrameLayout {
                         //日期与事件匹配完成
                         //日期事件匹配成功后,更新数据适配器
                         ((AgendaAdapter) getAgendaListView().getAdapter()).updateEvents(CalendarManager.getInstance().getEvents());
-                        System.out.println("---onAgendaView---调用了updateEvents");
+                        //System.out.println("---onAgendaView---调用了updateEvents");
                         getAgendaListView().scrollToCurrentDate(CalendarManager.getInstance().getToday());
 
 
@@ -122,8 +122,8 @@ public class AgendaView extends FrameLayout {
      */
     public void translateList(int targetY) {
         if (targetY != getTranslationY()) {
-            System.out.println("getTranslationY=" + getTranslationY());
-            System.out.println("targetY=" + targetY);
+            //System.out.println("getTranslationY=" + getTranslationY());
+            //System.out.println("targetY=" + targetY);
             //属性动画,通过修改view的属性达到动画的效果
             ObjectAnimator mover = ObjectAnimator.ofFloat(this, "translationY", targetY);
             mover.setDuration(150);

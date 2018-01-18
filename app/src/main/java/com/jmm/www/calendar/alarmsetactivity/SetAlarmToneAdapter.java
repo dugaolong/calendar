@@ -14,7 +14,6 @@ import com.jmm.www.calendar.R;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.xiaomi.ad.internal.common.h.R;
 
 /**
  * Created by jmm on 2016/4/18.

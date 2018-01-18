@@ -20,7 +20,6 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-import static com.xiaomi.ad.internal.common.h.R;
 
 /**
  * Created by jmm on 2016/4/18.

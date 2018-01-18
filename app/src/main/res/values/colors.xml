@@ -17,6 +17,13 @@
     <color name="calendar_circle_other_color">#dee1e2</color>
 
 
+    <color name="color_white">#ffffff</color>
+    <color name="bg_weather">#1EAAF1</color>
+    <color name="color_publish">#dddddd</color>
+    <color name="white">#FFFFFF</color>
+    <color name="color_hotPink">#FF69B4</color>
+    <color name="layout_background">#f2f2f2</color>
+    <color name="shape_dialog_bg">#dddddd</color>
 
 
     <!-- Alarm Color -->
@@ -27,6 +34,7 @@
     <color name="didiaohui">#607d88</color>
     <color name="juzihong">#E64A19</color>
     <color name="shenkonglan">#00537F</color>
+
 
     <!--<color name="light_grey">#8C9CA4</color>-->
     <!--<color name="white">#FFFFFF</color>-->

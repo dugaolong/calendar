@@ -13,6 +13,10 @@
     <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
     <uses-permission android:name="android.permission.GET_TASKS"/>
 
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <!-- 如果需要精确定位的话请加上此权限 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
     <application
         android:name=".AdApplication"
         android:allowBackup="true"
@@ -44,6 +48,9 @@
 
         <activity android:name="com.jmm.www.calendar.AlarmRemindActivity"/>
 
+        <activity android:name=".weather.LoadLbs"/>
+        <activity android:name=".weather.SelectCityActivity"/>
+        <activity android:name=".weather.WeatherShowActivity"/>
         <service android:name="com.jmm.www.calendar.alarmremind.AlarmService"
             android:process="com.jmm.www.calendar.serviceProcess"
             android:icon="@mipmap/calendar"
@@ -60,13 +67,14 @@
         <receiver android:name="com.jmm.www.calendar.alarmremind.AlarmAlertBroadcastReceiver">
         </receiver>
 
-        <activity
-            android:name="com.xiaomi.ad.AdActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
-            android:exported="false"
-            android:screenOrientation="behind"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"></activity>
-
+        <!-- 百度地图 -->
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="9pEqb7YEMjdjcpv2ncaCiHPlxx5NDmMk"></meta-data>
+        <service
+            android:name="com.baidu.location.f"
+            android:enabled="true"
+            android:process=":remote"></service>
     </application>
 
 </manifest>

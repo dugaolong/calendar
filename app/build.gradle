@@ -67,4 +67,6 @@ dependencies {
     compile 'com.squareup.retrofit2:adapter-rxjava:2.0.0-beta4'
     //加载图片
     compile 'com.squareup.picasso:picasso:2.5.2'
+    compile 'com.belerweb:pinyin4j:2.5.0'
+    compile 'com.alibaba:fastjson:1.2.44'
 }

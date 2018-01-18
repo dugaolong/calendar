@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:wcv="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/layout_titlebar"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginBottom="1dp"
+        android:background="@color/colorPrimary"
+        android:fitsSystemWindows="true"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_left"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:text="杭州"
+            android:textColor="@color/color_white"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:background="#00000000"
+            android:gravity="center_horizontal"
+            android:paddingLeft="10px"
+            android:paddingRight="10px"
+            android:text="北京"
+            android:textColor="#ffffff"
+            android:textSize="20sp" />
+
+        <ImageView
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@id/tv_title"
+            android:src="@drawable/location_title" />
+
+        <TextView
+            android:id="@+id/tv_right"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:text="天气"
+            android:textColor="@color/color_white"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/iv_right"
+            android:layout_width="20dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_gravity="center"
+            android:layout_marginRight="18dp"
+            android:gravity="center"
+            android:src="@drawable/set_city" />
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="1dp"
+        android:background="@color/colorPrimary"
+        android:scrollbars="none">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+
+            <!-- 发布时间-->
+            <TextView
+                android:id="@+id/publish_time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="6dp"
+                android:gravity="center"
+                android:text="20:00发布"
+                android:textColor="@color/color_publish" />
+
+            <!-- 天气-->
+            <TextView
+                android:id="@+id/tianqi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/publish_time"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="6dp"
+                android:gravity="center"
+                android:text="晴天"
+                android:textColor="@color/color_white"
+                android:textSize="20sp" />
+
+            <!-- 温度-->
+            <TextView
+                android:id="@+id/wendu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tianqi"
+                android:layout_marginBottom="20dp"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:text="8°"
+                android:textColor="@color/color_white"
+                android:textSize="100sp" />
+            <!-- 体感温度-->
+            <TextView
+                android:id="@+id/feels_like"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/wendu"
+                android:layout_marginTop="6dp"
+                android:gravity="center"
+                android:text="8°/20°"
+                android:textColor="@color/color_white"
+                android:textSize="16sp" />
+            <!-- 8个指标-->
+            <LinearLayout
+                android:id="@+id/datails"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/feels_like"
+                android:orientation="horizontal"
+                android:padding="6dp">
+
+                <TextView
+                    android:id="@+id/feng"
+                    android:layout_width="0dp"
+                    android:gravity="center"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="西北风\n2.0米/秒\n风况"
+                    android:textColor="@color/color_white" />
+
+                <TextView
+                    android:id="@+id/shidu"
+                    android:layout_width="0dp"
+                    android:gravity="center"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="23%\n湿度"
+                    android:textColor="@color/color_white" />
+
+                <TextView
+                    android:id="@+id/pm25"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="232\nPM2.5"
+                    android:textColor="@color/color_white" />
+
+                <TextView
+                    android:id="@+id/qiya"
+                    android:layout_width="0dp"
+                    android:gravity="center"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="1033百帕\n气压"
+                    android:textColor="@color/color_white" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/datails_two"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/datails"
+                android:orientation="horizontal"
+                android:padding="6dp">
+
+
+                <TextView
+                    android:id="@+id/nengjiandu"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="5公里\n可见度"
+                    android:gravity="center"
+                    android:textColor="@color/color_white" />
+
+                <TextView
+                    android:id="@+id/kongqizl"
+                    android:layout_width="0dp"
+                    android:gravity="center"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="500\n空气质量指数"
+                    android:textColor="@color/color_white" />
+
+                <TextView
+                    android:gravity="center"
+                    android:id="@+id/richu"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="日出:08:22\n日落16:09"
+                    android:textColor="@color/color_white" />
+
+                <TextView
+                    android:id="@+id/riluo"
+                    android:layout_width="0dp"
+                    android:gravity="center"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="日出:08:22\n日落16:09"
+                    android:textColor="@color/color_white" />
+
+            </LinearLayout>
+            <RelativeLayout
+                android:id="@+id/ll_futrue"
+                android:layout_below="@id/datails_two"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_marginLeft="8dp"
+                    android:padding="10dp"
+                    android:textSize="20dp"
+                    android:textColor="@color/white"
+                    android:text="未来5天"
+                    android:id="@+id/shenghuo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:layout_marginRight="20dp"
+                    android:layout_toRightOf="@id/shenghuo"
+                    android:layout_centerVertical="true"
+                    android:background="@color/white"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.05dp" />
+            </RelativeLayout>
+            <!--6天预报  白天-->
+            <LinearLayout
+                android:layout_below="@id/ll_futrue"
+                android:id="@+id/six_future_ll"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+            </LinearLayout>
+            <com.jmm.www.calendar.weather.WeatherChartView
+                android:layout_below="@id/six_future_ll"
+                android:background="@color/colorPrimary"
+                android:id="@+id/line_char"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_centerInParent="true"
+                wcv:dayColor="@color/colorAccent"
+                wcv:nightColor="@color/colorAccent"
+                wcv:textColor="@android:color/white"
+                wcv:textSize="14sp"/>
+            <!--6天预报  晚上-->
+            <LinearLayout
+                android:layout_below="@id/line_char"
+                android:id="@+id/six_future_ll_night"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+            </LinearLayout>
+            <!-- 生活指数-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/six_future_ll_night"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="20dp">
+
+                <include layout="@layout/shenghuozhishu" />
+            </RelativeLayout>
+        </RelativeLayout>
+
+    </ScrollView>
+</LinearLayout>

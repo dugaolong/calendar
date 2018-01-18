@@ -23,7 +23,6 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-import static com.xiaomi.ad.internal.common.h.R;
 
 /**
  * Created by jmm on 2016/4/19.
@@ -83,7 +82,7 @@ public class ScheduleDetailActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         id = Integer.parseInt(getIntent().getStringExtra("id"));
-        System.out.println("---id=" + id);
+        //System.out.println("---id=" + id);
 
         support = new AlarmDBSupport(getApplicationContext());
 

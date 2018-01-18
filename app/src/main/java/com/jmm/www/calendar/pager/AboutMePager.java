@@ -11,7 +11,6 @@ import com.jmm.www.calendar.utils.Events;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-import static com.xiaomi.ad.internal.common.h.R;
 
 /**
  * Created by jmm on 2016/5/14.

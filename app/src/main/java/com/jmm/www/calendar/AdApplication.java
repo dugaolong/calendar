@@ -1,22 +1,58 @@
 package com.jmm.www.calendar;
 
 import android.app.Application;
+import android.content.res.AssetManager;
+import android.util.Log;
 
-import com.xiaomi.ad.AdSdk;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 
 /**
- * 您可以参考本类中的代码来接入小米游戏广告SDK。在接入过程中，有如下事项需要注意：
- * 1.请将 APP_ID 值替换成您在小米开发者网站上申请的 AppID。
+ *
+ *
  */
 public class AdApplication extends Application {
-    //请注意，千万要把以下的 APP_ID 替换成您在小米开发者网站上申请的 AppID。否则，可能会影响你的应用广告收益。
-    private static final String APP_ID = "2882303761517632616";
-
+    private String TAG = "AdApplication";
     @Override
     public void onCreate() {
         super.onCreate();
-        AdSdk.setDebugOn();
-        AdSdk.initialize(this, APP_ID);
+        copyDB();
+    }
+
+    /**
+     * 将 数据库从 assets 复制到 databases下
+     */
+    private void copyDB() {
+        //data/data/packageName/databases/
+        File mkdir = new File(getFilesDir().getParent(),"databases");
+        //创建 databases文件夹
+        if (!mkdir.exists()) mkdir.mkdirs();
+        Log.e(TAG, "copyDb: mkdir="+mkdir.getPath());
+        //数据库文件
+        File file = new File(mkdir,"CenterWeatherCityCode.db");
+        //只是在程序第一次启动时创建
+        if(!file.exists()){
+            //获取 assets管理
+            AssetManager assets = getAssets();
+            //执行文件复制
+            try {
+                InputStream open = assets.open("CenterWeatherCityCode.db");
+                FileOutputStream fos = new FileOutputStream(file);
+                byte[] bs = new byte[1024];
+                int len ;
+                while ((len = open.read(bs))!=-1){
+                    fos.write(bs,0,len);
+                }
+                fos.flush();
+                fos.close();
+                open.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        Log.e(TAG, "copyDb: exists="+file.getPath());
     }
 
 }

@@ -5,15 +5,18 @@ import android.app.AlertDialog;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.provider.Settings;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.RotateAnimation;
@@ -29,6 +32,8 @@ import com.jmm.www.calendar.utils.BusProvider;
 import com.jmm.www.calendar.utils.CalendarManager;
 import com.jmm.www.calendar.utils.Events;
 import com.jmm.www.calendar.utils.PrefUtils;
+import com.jmm.www.calendar.weather.LoadLbs;
+import com.jmm.www.calendar.weather.WeatherShowActivity;
 import com.wangjie.rapidfloatingactionbutton.RapidFloatingActionHelper;
 
 import java.util.Calendar;
@@ -58,6 +63,9 @@ public class MainActivity extends AppCompatActivity {
     public CalendarView calendar_view;
     //CalendarView自定义控件的属性
     private int mCalendarHeaderColor, mCalendarDayTextColor, mCalendarPastDayTextColor, mCalendarCurrentDayColor;
+    //天气
+    @Bind(R.id.show_weather)
+    TextView show_weather;
     //月份
     @Bind(R.id.title_day)
     TextView title_day;
@@ -76,6 +84,8 @@ public class MainActivity extends AppCompatActivity {
     ImageView title_arrow;
     //打开关闭CalendarView
     private boolean isOpen = true;//日历视图是否显示
+    SharedPreferences preferences;
+    String cityName;
 
     @OnClick(R.id.calendar_open_close)
     void openAndCloseCalendarView() {
@@ -91,11 +101,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //回到今天
-    @OnClick(R.id.go_today)
-    void goToday() {
-//        homePager.agenda_view.getAgendaListView().scrollToCurrentDate(CalendarManager.getInstance().getToday());
-        BusProvider.getInstance().send(new Events.GoBackToDay());
-        calendar_view.scrollToDate(CalendarManager.getInstance().getToday(), CalendarManager.getInstance().getWeeks());
+    @OnClick(R.id.show_weather)
+    void show_weather() {
+        if (TextUtils.isEmpty(cityName)) {
+            startActivity(new Intent(this, LoadLbs.class));
+        } else {
+            Intent intent = new Intent(MainActivity.this, WeatherShowActivity.class);
+            intent.putExtra("city", cityName);
+            startActivity(intent);
+        }
     }
 
     private boolean isAllowAlert = false;
@@ -106,6 +120,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         ButterKnife.bind(this);
+
 
         initCalendarInfo();
         initLayoutView();
@@ -139,15 +154,16 @@ public class MainActivity extends AppCompatActivity {
      * 权限申请弹窗
      */
     private void showPermissionDialog() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-        builder.setTitle("弹窗需要开启权限哦~")
+        new AlertDialog.Builder(MainActivity.this)
+                .setTitle("弹窗需要开启权限哦~")
                 .setPositiveButton("开启", (dialog, which) -> {
                     requestAlertWindowPermission();
                 })
                 .setNegativeButton("取消", (dialog, which) -> {
 
-                });
-        builder.create().show();
+                })
+                .setCancelable(false)
+                .create().show();
     }
 
 
@@ -168,15 +184,15 @@ public class MainActivity extends AppCompatActivity {
 
         //填充 Fragment
         FragmentManager manager = getFragmentManager();
-
         FragmentTransaction transaction = manager.beginTransaction();
-
         ContentFragment fragment = new ContentFragment();
-
         transaction.replace(R.id.main_frame, fragment, "CONTENT_FRAGMENT");
-
         transaction.commit();
-
+        preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        cityName = preferences.getString("cityName", "");
+        if (!TextUtils.isEmpty(cityName)) {
+            show_weather.setText(cityName + "天气");
+        }
     }
 
     /**
@@ -263,7 +279,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onRestart() {
         super.onRestart();
-        System.out.println("---onRestart");
+        //System.out.println("---onRestart");
 
     }
 
@@ -317,4 +333,12 @@ public class MainActivity extends AppCompatActivity {
         return mDrawerLayout;
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        cityName = preferences.getString("cityName", "");
+        if (!TextUtils.isEmpty(cityName)) {
+            show_weather.setText(cityName + "天气");
+        }
+    }
 }
