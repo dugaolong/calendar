@@ -49,7 +49,7 @@ public class SelectCityActivity extends AppCompatActivity implements View.OnClic
     private List<String> generalsTypes = new ArrayList<String>();
     private ClearEditText et_search;
     private LinearLayout ll_hotCity;
-    private NoScrollListView lv_search;
+    private NoScrollListView nslistview;
     ArrayAdapter<String> arrayAdapter;
     private List<String> listView_temp_data = new ArrayList<String>();
     private TextView beijing,shanghai,shenzhen,guangzhou,hangzhou,chengdu,chongqing,xian,nanjing,zhengzhou,tianjin,wuhan;
@@ -100,12 +100,12 @@ public class SelectCityActivity extends AppCompatActivity implements View.OnClic
                     return;
                 }
                 if (!TextUtils.isEmpty(content)) {
-                    lv_search.setVisibility(View.VISIBLE);
+                    nslistview.setVisibility(View.VISIBLE);
                     expandableListView.setVisibility(View.GONE);
                     ll_hotCity.setVisibility(View.GONE);
                     nodtifyListView(content);
                 } else {
-                    lv_search.setVisibility(View.GONE);
+                    nslistview.setVisibility(View.GONE);
                     ll_hotCity.setVisibility(View.VISIBLE);
                     expandableListView.setVisibility(View.VISIBLE);
                 }
@@ -129,8 +129,8 @@ public class SelectCityActivity extends AppCompatActivity implements View.OnClic
     }
 
     private void initListView() {
-        lv_search.setAdapter(arrayAdapter);
-        lv_search.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        nslistview.setAdapter(arrayAdapter);
+        nslistview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String city_name = listView_temp_data.get(position);//选中的城市名称
@@ -171,7 +171,7 @@ public class SelectCityActivity extends AppCompatActivity implements View.OnClic
         expandableListView = (ExpandableListView) findViewById(R.id.expandableListView);
         et_search = (ClearEditText) findViewById(R.id.et_search);
         ll_hotCity = (LinearLayout) findViewById(R.id.ll_hotCity);
-        lv_search = (NoScrollListView) findViewById(R.id.lv_search);
+        nslistview = (NoScrollListView) findViewById(R.id.nslistview);
         //去掉箭头
         expandableListView.setGroupIndicator(null);
         //expandableListView父级不能点击
