@@ -19,6 +19,31 @@
             android:icon="@drawable/ic_receipt_grey_900_24dp"
             android:title="周计划" />
         <item
+            android:id="@+id/rl_share"
+            android:checkable="true"
+            android:icon="@drawable/share"
+            android:title="分享给好友" />
+        <item
+            android:id="@+id/rl_clean"
+            android:checkable="true"
+            android:icon="@drawable/clean"
+            android:title="清理缓存" />
+        <item
+            android:id="@+id/rl_update"
+            android:checkable="true"
+            android:icon="@drawable/update"
+            android:title="检查新版本" />
+        <item
+            android:id="@+id/rl_mark"
+            android:checkable="true"
+            android:icon="@drawable/mark"
+            android:title="喜欢吗？鼓励一下"/>
+        <item
+            android:id="@+id/rl_feedback"
+            android:checkable="true"
+            android:icon="@drawable/feedback"
+            android:title="qq反馈问题" />
+        <item
             android:id="@+id/aboutMe"
             android:checkable="true"
             android:icon="@drawable/about"

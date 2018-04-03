@@ -20,7 +20,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:text="Design By Each"
+            android:text="Design By jmm"
             android:gravity="center"/>
     </LinearLayout>
 
@@ -39,7 +39,7 @@
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:paddingLeft="10dp"
-            android:text="3394376465@qq.com"
+            android:text="3132526099@qq.com"
             android:textColor="@color/calendar_circle_current_color"
             android:gravity="center_vertical"/>
     </LinearLayout>

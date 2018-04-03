@@ -305,7 +305,7 @@ public class SelectCityActivity extends AppCompatActivity implements View.OnClic
             if (!generalsTypes.contains(sortKey)) {
                 generalsTypes.add(sortKey);
             }
-            Log.e("SSSSS", "sortKey:" + sortKey);
+//            Log.e("SSSSS", "sortKey:" + sortKey);
             List<String> list = map.get(sortKey);
             if (list == null) {
                 list = new ArrayList<>();

@@ -70,7 +70,7 @@ public class WeatherShowActivity extends AppCompatActivity implements View.OnCli
     ProgressDialog progressDialog;
     //更新时间
     private String lastUpdate;
-    private ImageView iv_right;
+    private ImageView iv_right,iv_left;
     private TextView tianqi, wendu, feng, shidu, feels_like, pm25, qiya, nengjiandu, richu,riluo, kongqizl;
     private TextView desc1, desc2, desc3, desc4, desc5, desc6;
     WeatherChartView chartView ;
@@ -105,6 +105,8 @@ public class WeatherShowActivity extends AppCompatActivity implements View.OnCli
     }
 
     private void initView() {
+        iv_left = (ImageView) findViewById(R.id.iv_left);
+        iv_left.setOnClickListener(this);
         iv_right = (ImageView) findViewById(R.id.iv_right);
         iv_right.setOnClickListener(this);
         tianqi = (TextView) findViewById(R.id.tianqi);
@@ -397,9 +399,18 @@ public class WeatherShowActivity extends AppCompatActivity implements View.OnCli
         switch(v.getId())
         {
             case R.id.iv_right:
+             DialogUtil.showProgressDialog(this, "正在获取数据，请稍候...");
                 gotoSelectCity();
                 break;
+            case R.id.iv_left:
+               finish();
+                break;
         }
+    }
 
+    @Override
+    protected void onStop() {
+        super.onStop();
+        DialogUtil.closeProgressDialog();
     }
 }

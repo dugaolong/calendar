@@ -24,7 +24,8 @@
     <color name="color_hotPink">#FF69B4</color>
     <color name="layout_background">#f2f2f2</color>
     <color name="shape_dialog_bg">#dddddd</color>
-
+    <!--  -->
+    <color name="gray_txt_light">#FFC8C8C8</color>
 
     <!-- Alarm Color -->
     <color name="moren">#3f51b5</color>

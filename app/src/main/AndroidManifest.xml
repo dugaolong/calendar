@@ -51,6 +51,8 @@
         <activity android:name=".weather.LoadLbs"/>
         <activity android:name=".weather.SelectCityActivity"/>
         <activity android:name=".weather.WeatherShowActivity"/>
+        <activity android:name=".setting.ClearDataActivity"
+            android:theme="@style/AlertDialogBottom"></activity>
         <service android:name="com.jmm.www.calendar.alarmremind.AlarmService"
             android:process="com.jmm.www.calendar.serviceProcess"
             android:icon="@mipmap/calendar"
